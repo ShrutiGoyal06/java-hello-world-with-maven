@@ -10,6 +10,8 @@ pipeline {
 				steps {
 					script{
 					def server = Artifactory.server 'hmnoartifactorypro'
+						echo "**/target/*.jar"
+						
 					def uploadSpec = """{
 						"files": [
 						{
@@ -18,6 +20,7 @@ pipeline {
 						}
 					]
 				}"""
+				echo "pattern"
 				server.upload(uploadSpec)
 					}
 			}
