@@ -14,11 +14,11 @@ pipeline {
 						"files": [
 						{
 						"pattern": "**/target/*.jar",
-                        "target": "libs-snapshot-local/hmno/nsl/jar/"
+                        			"target": "libs-snapshot-local/hmno/nsl/jar/"
 						}
 					]
 				}"""
-				server.upload spec: uploadSpec, buildInfo: buildInfo
+				server.upload(uploadSpec)
 				
 			}
 		}
