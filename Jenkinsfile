@@ -10,17 +10,14 @@ pipeline {
 				steps {
 					script{
 					def server = Artifactory.server 'hmnoartifactorypro'
-						echo "**/target/*.jar"
-						
 					def uploadSpec = """{
 						"files": [
 						{
-						"pattern": "**/target/*.jar",
+						"pattern": "jb-hello-world-maven-0.1.0.jar",
                         			"target": "libs-snapshot-local/hmno/nsl/jar/"
 						}
 					]
 				}"""
-				echo "pattern"
 				server.upload(uploadSpec)
 					}
 			}
