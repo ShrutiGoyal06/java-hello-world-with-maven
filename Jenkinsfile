@@ -7,8 +7,8 @@ pipeline {
 				}
 			}
 			stage('Uploading jar file to Artifactory') {
-				steps 
-				{
+				steps {
+					script{
 					def server = Artifactory.server 'hmnoartifactorypro'
 					def uploadSpec = """{
 						"files": [
@@ -19,7 +19,7 @@ pipeline {
 					]
 				}"""
 				server.upload(uploadSpec)
-				
+					}
 			}
 		}
 	}
